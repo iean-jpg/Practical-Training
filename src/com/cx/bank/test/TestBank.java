@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class TestBank {
     public static void main(String[] args){
-        MoneyBean account = new MoneyBean();
+        MoneyBean account = MoneyBean.getInstance();
         Scanner input = new Scanner(System.in);
         int flag;
         double money;
