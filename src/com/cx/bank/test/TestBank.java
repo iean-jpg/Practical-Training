@@ -1,14 +1,16 @@
 package com.cx.bank.test;
 
 import com.cx.bank.manager.ManagerImpl;
+import com.cx.bank.manager.managerInterface;
 import com.cx.bank.model.MoneyBean;
 
 import java.util.Scanner;
 
 public class TestBank {
     public static void main(String[] args){
-        MoneyBean account = MoneyBean.getInstance();
+        MoneyBean account = new MoneyBean();
         Scanner input = new Scanner(System.in);
+        managerInterface manager = ManagerImpl.getInstance();
         int flag;
         double money;
         while(true){
@@ -22,15 +24,15 @@ public class TestBank {
             if (flag==1){
                 System.out.println("请输入要存的金额：");
                 money = input.nextDouble();
-                ManagerImpl.deposit(account,money);
+                manager.deposit(account,money);
             }else if(flag==2){
                 System.out.println("请输入要取的金额：");
                 money = input.nextDouble();
-                ManagerImpl.wirhDrawals(account,money);
+                manager.wirhDrawals(account,money);
             }else if(flag==3){
-                ManagerImpl.inquiry(account);
+                manager.inquiry(account);
             }else {
-                ManagerImpl.exitSystem();
+                manager.exitSystem();
             }
 
         }
